@@ -1,0 +1,5 @@
+pkg-config-host (1.0) zelazny; urgency=low
+
+  * Initial release.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Mon, 21 Dec 2009 11:36:53 +0600

@@ -1,0 +1,9 @@
+Format-Specification:
+    http://wiki.debian.org/Proposals/CopyrightFormat?action=recall&rev=196
+
+Files: *
+Copyright: 2009, Mikhail Gusarov <dottedmag@dottedmag.net>
+License: MIT
+
+License: MIT
+    BLAH BLAH

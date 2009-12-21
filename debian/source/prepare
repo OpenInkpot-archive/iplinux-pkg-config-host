@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if [ $# -ne 1 ]; then
+    echo "Usage: debian/source/prepare <arch>"
+    exit 1
+fi
+
+TARGET=$1
+GNU_TARGET=$(dpkg-architecture -a${TARGET} -qDEB_HOST_GNU_TYPE 2>/dev/null)
+PKG_GNU_TARGET=$(echo ${GNU_TARGET} | sed -e 's/_/-/g')
+
+sed -e "s/__PKG_GNU_TARGET__/${PKG_GNU_TARGET}/g" \
+    < pkg-config-cross.in > ${PKG_GNU_TARGET}-pkg-config
+
+for i in debian/control debian/install debian/links; do
+    sed -e "s/__PKG_GNU_TARGET__/${PKG_GNU_TARGET}/g" \
+        -e "s/__TARGET__/${TARGET}/g" < $i.in > $i
+done
+
+sleep 1
+
+DIR=$(basename $(pwd))
+(cd ..; dpkg-source -b "$DIR")
+
+rm -f ${PKG_GNU_TARGET}-pkg-config debian/control debian/install debian/links
