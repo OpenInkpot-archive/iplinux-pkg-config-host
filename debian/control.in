@@ -1,0 +1,15 @@
+Source: pkg-config-host
+Section: host/tools
+Priority: optional
+Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.3
+
+Package: pkg-config-__PKG_GNU_TARGET__
+Architecture: all
+Depends: ${misc:Depends}, pkg-config
+Description: manage compile and link flags for libraries (__TARGET__)
+ pkg-config is a system for managing library compile and link flags that
+ works with automake and autoconf.
+ .
+ This package contains pkg-config version for __TARGET__ architecture.
