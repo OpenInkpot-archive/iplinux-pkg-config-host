@@ -1,2 +1,2 @@
 #!/bin/sh
-PKG_CONFIG_LIBDIR="/usr/__PKG_GNU_TARGET__/lib/pkgconfig" exec /usr/bin/pkg-config "$@"
+PKG_CONFIG_LIBDIR="/usr/__PKG_GNU_TARGET__/lib/pkgconfig:/usr/share/pkgconfig" exec /usr/bin/pkg-config "$@"
